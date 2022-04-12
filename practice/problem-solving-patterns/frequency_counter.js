@@ -2,6 +2,8 @@ function anagramVerification(str1, str2) {
   let frequencyCounter1 = {};
   let frequencyCounter2 = {};
 
+  if (str1.length !== str2.length) return false;
+
   for (let char of str1) {
     frequencyCounter1[char] = (frequencyCounter1[char] || 0) + 1;
   }
@@ -17,4 +19,4 @@ function anagramVerification(str1, str2) {
   return true;
 }
 
-console.log(anagramVerification('helloo', 'helloo'));
+console.log(anagramVerification('helloo', 'helloo0'));
