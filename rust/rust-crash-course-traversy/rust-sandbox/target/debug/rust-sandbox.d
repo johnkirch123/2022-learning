@@ -1,0 +1,1 @@
+C:\Users\dubskiski\Documents\Github\ Repos\2021\2022-learning\rust\rust-crash-course-traversy\rust-sandbox\target\debug\rust-sandbox.exe: C:\Users\dubskiski\Documents\Github\ Repos\2021\2022-learning\rust\rust-crash-course-traversy\rust-sandbox\src\main.rs C:\Users\dubskiski\Documents\Github\ Repos\2021\2022-learning\rust\rust-crash-course-traversy\rust-sandbox\src\vars.rs
