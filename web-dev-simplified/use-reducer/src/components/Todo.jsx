@@ -11,7 +11,7 @@ const Todo = ({ todo, dispatch }) => {
         onClick={() =>
           dispatch({
             type: ACTIONS.TOGGLE_TODO,
-            payload: { id: todo.id }
+            payload: todo.id
           })
         }
       >
@@ -21,7 +21,7 @@ const Todo = ({ todo, dispatch }) => {
         onClick={() =>
           dispatch({
             type: ACTIONS.DELETE_TODO,
-            payload: { id: todo.id }
+            payload: todo.id
           })
         }
       >

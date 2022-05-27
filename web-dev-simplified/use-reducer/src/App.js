@@ -1,27 +1,42 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import Todo from './components/Todo';
 
 export const ACTIONS = {
   ADD_TODO: 'add-todo',
   TOGGLE_TODO: 'toogle-todo',
-  DELETE_TODO: 'delete-todo'
+  DELETE_TODO: 'delete-todo',
+  UPDATE_INPUT: 'update-input'
 };
 
-function reducer(todos, action) {
+function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.ADD_TODO:
-      return [...todos, newTodo(action.payload.name)];
+      return {
+        ...state,
+        todos: [...state.todos, newTodo(action.payload)],
+        name: ''
+      };
     case ACTIONS.TOGGLE_TODO:
-      return todos.map((todo) => {
-        if (todo.id === action.payload.id) {
-          return { ...todo, complete: !todo.complete };
-        }
-        return todo;
-      });
+      return {
+        ...state,
+        todos: [
+          ...state.todos.map((todo) => {
+            if (todo.id === action.payload) {
+              return { ...todo, complete: !todo.complete };
+            }
+            return todo;
+          })
+        ]
+      };
     case ACTIONS.DELETE_TODO:
-      return todos.filter((todo) => todo.id !== action.payload.id);
+      return {
+        ...state,
+        todos: [...state.todos.filter((todo) => todo.id !== action.payload)]
+      };
+    case ACTIONS.UPDATE_INPUT:
+      return { ...state, name: action.payload };
     default:
-      return todos;
+      return state;
   }
 }
 
@@ -30,13 +45,11 @@ function newTodo(name) {
 }
 
 export default function App() {
-  const [todos, dispatch] = useReducer(reducer, []);
-  const [name, setName] = useState('');
+  const [state, dispatch] = useReducer(reducer, { todos: [], name: '' });
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } });
-    setName('');
+    dispatch({ type: ACTIONS.ADD_TODO, payload: state.name });
   }
 
   return (
@@ -44,11 +57,16 @@ export default function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={state.name}
+          onChange={(e) =>
+            dispatch({
+              type: ACTIONS.UPDATE_INPUT,
+              payload: e.target.value
+            })
+          }
         />
       </form>
-      {todos.map((todo) => {
+      {state.todos?.map((todo) => {
         return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
       })}
     </>
