@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Button } from '@chakra-ui/react';
+import { Box, Image, Button, Container, Heading } from '@chakra-ui/react';
 import brandLogo from '../assets/brand-logo.svg';
 
 const Banner = () => {
@@ -26,6 +26,19 @@ const Banner = () => {
           </Box>
         </Box>
       </header>
+
+      <Box>
+        <Container maxWidth='container.lg.xl'>
+          <Box display='flex' alignItems='center' py='20' flexDirection='row'>
+            <Box>
+              <Heading>
+                <Box>Dive in! There are so many things to do in Meetup</Box>
+              </Heading>
+              <Box mt='6' fontWeight='medium'></Box>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
     </>
   );
 };
