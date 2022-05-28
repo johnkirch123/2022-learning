@@ -26,6 +26,16 @@ const todosReducer = (state, action) => {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload)
       };
+    case ACTIONS.COMPLETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload) {
+            return { ...todo, complete: !todo.complete };
+          }
+          return todo;
+        })
+      };
     case ACTIONS.INPUT_VALUE:
       return { ...state, inputValue: action.payload };
     default:

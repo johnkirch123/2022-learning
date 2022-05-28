@@ -3,4 +3,33 @@
   background-color: #eee;
   padding: 0 2rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo__todo {
+  cursor: pointer;
+}
+
+.todo__todo:hover {
+  cursor: pointer;
+}
+
+.todo__todo--strike {
+  text-decoration: line-through;
+}
+
+.todo__todo--strike:hover {
+  cursor: pointer;
+  text-decoration: line-through;
+}
+
+.todo__delete {
+  transition: transform 0.2s ease-in-out;
+}
+
+.todo__delete:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
