@@ -1,0 +1,20 @@
+.todo__form {
+  padding: 3rem;
+
+  display: flex;
+}
+
+.todo__input {
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.todo__button {
+  width: 8rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+}
+
+.todo__button:hover {
+  cursor: pointer;
+}
