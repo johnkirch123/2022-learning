@@ -57,3 +57,32 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.todo__buttons {
+  min-width: 15%;
+}
+
+.todo__item--input {
+  height: 2rem;
+  width: 95%;
+}
+
+.todo__icons {
+  margin-left: 0.5rem;
+}
+
+.todo__icons:hover {
+  cursor: pointer;
+}
+
+.todo__text:hover {
+  cursor: pointer;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.incomplete {
+  text-decoration: none;
+}

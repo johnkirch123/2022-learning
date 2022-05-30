@@ -4,13 +4,11 @@ import TodoContext from '../context/todoContext';
 
 const TodoInput = () => {
   const { state, dispatch } = useContext(TodoContext);
-  const inputRef = useRef();
   return (
     <form className='todo__form'>
       <input
         type='text'
         name='text'
-        ref={inputRef}
         value={state.text}
         className='todo__input'
         placeholder='Add Todo...'
@@ -26,10 +24,9 @@ const TodoInput = () => {
         className='todo__button'
         onClick={(e) => {
           e.preventDefault();
-          console.log(`state in TodoInput: ${state.text}`);
           dispatch({
             type: ACTIONS.ADD_TODO,
-            payload: { text: inputRef.current.value }
+            payload: { text: state.text }
           });
         }}
       >
