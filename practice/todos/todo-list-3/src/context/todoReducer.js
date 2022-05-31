@@ -19,6 +19,7 @@ const createTodo = (todo) => {
     id: Date.now(),
     todo,
     completed: false,
+    editMode: false,
     creationDate: Date.now(),
     completionDate: null
   };
@@ -38,6 +39,39 @@ export function todosReducer(state, action) {
       };
       writeLocalStorage(addedTodoState);
       return addedTodoState;
+    case ACTIONS.EDIT_TODO:
+      return {
+        ...state,
+        todos: [
+          ...state.todos.map((todo) => {
+            if (todo.id === action.payload) {
+              return {
+                ...todo,
+                editMode: !todo.editMode
+              };
+            }
+            return todo;
+          })
+        ]
+      };
+    case ACTIONS.UPDATE_TODO:
+      const updatedTodoState = {
+        ...state,
+        todos: [
+          ...state.todos.map((todo) => {
+            if (todo.id === action.payload.id) {
+              return {
+                ...todo,
+                todo: action.payload.todo,
+                editMode: !todo.editMode
+              };
+            }
+            return todo;
+          })
+        ]
+      };
+      writeLocalStorage(updatedTodoState);
+      return updatedTodoState;
     case ACTIONS.DELETE_TODO:
       const removedTodoState = {
         ...state,
