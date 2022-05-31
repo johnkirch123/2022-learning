@@ -4,6 +4,8 @@ import TodoProvider from './context/TodoProvider';
 import TodoInput from './components/TodoInput/TodoInput';
 import TodoList from './components/TodoList/TodoList';
 
+import './app.css';
+
 const App = () => {
   return (
     <TodoProvider>

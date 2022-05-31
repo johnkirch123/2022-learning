@@ -1,0 +1,25 @@
+.todo__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5c574f;
+  color: #dff8eb;
+  padding: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.todo__card:first-child {
+  margin-top: 3rem;
+}
+
+.todo__header {
+  text-decoration: none;
+}
+
+.todo__header--strike {
+  text-decoration: line-through;
+}
+
+.todo__delete:hover {
+  cursor: pointer;
+}
