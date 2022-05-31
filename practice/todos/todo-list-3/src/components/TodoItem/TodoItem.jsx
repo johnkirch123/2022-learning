@@ -4,8 +4,8 @@ import { RiDeleteBack2Line } from 'react-icons/ri';
 import { AiOutlineEdit, AiOutlineCheckCircle } from 'react-icons/ai';
 import DatePicker from 'react-datepicker';
 
-import './index.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import './index.css';
 
 const dateFormatter = (unixTimestamp) => {
   let date = new Date(unixTimestamp * 1000);
@@ -38,7 +38,7 @@ const TodoItem = ({ todo, dispatch }) => {
           <input
             type='text'
             value={inputEdit}
-            className='todo__input'
+            className='todo__card--input'
             onChange={(e) => setInputEdit(e.target.value)}
           />
         ) : (
@@ -55,9 +55,10 @@ const TodoItem = ({ todo, dispatch }) => {
       </div>
       <div className='todo__buttons'>
         <div className='todo__date--complete'>
-          <h4 className='todo__date--text'>Complete By:</h4>
+          <h6 className='todo__date--text'>Complete By:</h6>
           <DatePicker
             selected={startDate}
+            className='todo__date--picker'
             onChange={(date) => setStartDate(date)}
           />
         </div>
