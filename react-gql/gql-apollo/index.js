@@ -1,12 +1,7 @@
 const express = require('express');
 const app = express();
-const userData = require('./MOCK_DATA.json');
-const graphql = require('graphql');
 const { graphqlHTTP } = require('express-graphql');
-
-app.get('/', (req, res) => {
-  res.send('Home Page');
-});
+const schema = require('./Schemas');
 
 app.use(
   '/graphql',
