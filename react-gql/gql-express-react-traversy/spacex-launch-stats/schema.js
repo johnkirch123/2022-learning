@@ -7,7 +7,6 @@ const {
   GraphQLList,
   GraphQLSchema
 } = require('graphql');
-const { assertValidExecutionArguments } = require('graphql/execution/execute');
 
 // Launch Type
 const LaunchType = new GraphQLObjectType({
